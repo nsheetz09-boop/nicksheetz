@@ -77,6 +77,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -109,7 +110,12 @@
             color: var(--text-primary);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -452,6 +458,26 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .capability-card {
+            min-height: auto;
+        }
+
+        .capability-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .capability-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .capability-link:hover {
+            text-decoration: underline;
         }
 
         .services-cta {
@@ -823,16 +849,16 @@
     <div class="noise-overlay"></div>
 
     <nav>
-        <div class="logo">Nick Sheetz</div>
+        <a href="index.html" class="logo">Nick Sheetz</a>
         <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
         <ul class="nav-links">
-            <li><a href="#about" onclick="closeMenu()">About</a></li>
-            <li><a href="#services" onclick="closeMenu()">Services</a></li>
-            <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+            <li><a href="index.html" class="active" onclick="closeMenu()">Home</a></li>
+            <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+            <li><a href="work.html" onclick="closeMenu()">Work</a></li>
             <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
         </ul>
     </nav>
@@ -848,7 +874,7 @@
             <p class="hero-description">Operations leader turned automation builder. I help small teams eliminate manual work using n8n, AI, and Notion—delivered in days, not months.</p>
             <div class="hero-cta">
                 <a href="https://calendly.com/nsheetz09/15-minute-automation-audit" target="_blank" class="btn btn-primary">Book a Free Audit</a>
-                <a href="#services" class="btn btn-secondary">View Services</a>
+                <a href="services.html" class="btn btn-secondary">View Services</a>
             </div>
         </div>
     </section>
@@ -885,86 +911,38 @@
     <section id="services">
         <div class="services">
             <div class="section-header">
-                <div class="section-tag">Services</div>
-                <h2 class="section-title">Automation That Delivers</h2>
+                <div class="section-tag">What I Do</div>
+                <h2 class="section-title">How I Can Help</h2>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h4>AI-Powered Lead Workflow</h4>
-                    <p>Automated system that captures leads, enriches them with AI, routes to your CRM, and alerts your team—no manual data entry.</p>
-                    <div class="service-details">
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>Form/intake integration</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>AI enrichment & scoring</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>CRM + Slack/email alerts</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>3-5 day delivery</span>
-                        </div>
-                    </div>
-                    <div class="service-price">Starting at $2,500</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h4>Ops Dashboard + Automation</h4>
-                    <p>Notion-based operations hub with 3 custom automated workflows. Get visibility and eliminate manual work in one project.</p>
-                    <div class="service-details">
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>Custom Notion workspace</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>3 n8n automations</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>Automation audit included</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>5-7 day delivery</span>
-                        </div>
-                    </div>
-                    <div class="service-price">Starting at $3,500</div>
-                </div>
-                <div class="service-card">
+                <div class="service-card capability-card">
                     <div class="service-icon">⚡</div>
-                    <h4>Custom n8n Workflow</h4>
-                    <p>Any workflow, any complexity. Tell me what manual process is eating your time and I'll automate it.</p>
-                    <div class="service-details">
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>Any tools/integrations</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>AI capabilities included</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>Documentation + training</span>
-                        </div>
-                        <div class="service-detail">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                            <span>2-4 day delivery</span>
-                        </div>
-                    </div>
-                    <div class="service-price">Starting at $1,500</div>
+                    <h4>Workflow Automation</h4>
+                    <p>Eliminate manual work with custom n8n workflows, AI-powered processes, and system integrations. Fixed scope, fast delivery.</p>
+                    <a href="services.html" class="capability-link">View automation services →</a>
+                </div>
+                <div class="service-card capability-card">
+                    <div class="service-icon">🎯</div>
+                    <h4>Fractional Ops Leadership</h4>
+                    <p>Embedded operations leadership for growing companies. Process design, team building, and systems implementation without a full-time hire.</p>
+                    <a href="services.html" class="capability-link">Learn more →</a>
+                </div>
+                <div class="service-card capability-card">
+                    <div class="service-icon">🌐</div>
+                    <h4>Website Services</h4>
+                    <p>Professional web presence without agencies. From one-page sites to fully managed packages—built fast, priced fairly.</p>
+                    <a href="services.html#website-services" class="capability-link">View website packages →</a>
+                </div>
+                <div class="service-card capability-card">
+                    <div class="service-icon">💬</div>
+                    <h4>Advisory</h4>
+                    <p>Ongoing access for founders and operators who need a sounding board on ops, product, automation, and scaling decisions.</p>
+                    <a href="services.html" class="capability-link">Learn more →</a>
                 </div>
             </div>
             <div class="services-cta">
-                <p>Not sure what you need? Let's talk through it.</p>
-                <a href="https://calendly.com/nsheetz09/15-minute-automation-audit" target="_blank" class="btn btn-primary">Book a Free 15-Min Audit</a>
+                <p>Ready to dive deeper?</p>
+                <a href="services.html" class="btn btn-primary">View All Services</a>
             </div>
         </div>
     </section>
@@ -1065,11 +1043,11 @@
                     </svg>
                     Book a Call
                 </a>
-                <a href="mailto:nsheetz09@gmail.com" class="contact-link">
+                <a href="/cdn-cgi/l/email-protection#701e03181515040a404930171d11191c5e131f1d" class="contact-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    nsheetz09@gmail.com
+                    <span class="__cf_email__" data-cfemail="fb9588939e9e8f81cbc2bb9c969a9297d5989496">[email&#160;protected]</span>
                 </a>
                 <a href="tel:217-343-0503" class="contact-link">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1085,7 +1063,7 @@
         <p>© 2026 Nick Sheetz. Built with intention.</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
@@ -1104,12 +1082,4 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.skill-card, .service-card, .timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+        document.querySelectorAll('.skill-card, .service-card, .timel
